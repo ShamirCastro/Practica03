@@ -1,8 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Productos
+@{
+    ViewData["Title"] = "Solicitudes de productos ";
 }
-
+<body>  
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1>BUSCO</h1>
 </div>
+<div>
+  <img src="https://previews.123rf.com/images/rawpixel/rawpixel1707/rawpixel170750983/82314375-tienda-de-ropa-ilustraci%C3%B3n-del-pedido-ahora-del-vintage.jpg" class="img-fluid" alt="...">
+</div>
+<div style="text-align: center">
+        <div>  
+            <h2>Bienvenidos a la Aplicación Web Busco</h2>
+        </div>
+</div>
+<div style="text-align: center">
+            <a asp-controller="Home" asp-action="Busco"> 
+            <button type="button" class="btn">Ver solicitudes registradas</button>
+            </a>
+        </div>
+        
+
+        <div style="text-align: center">
+            <a asp-controller="Home" asp-action="Producto">
+                <button type="button" class="btn">Agregar nuevos productos </button></a>
+        </div>
+    </div>
+</body>

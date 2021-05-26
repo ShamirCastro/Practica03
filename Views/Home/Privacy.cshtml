@@ -1,6 +1,47 @@
+@model List<Productos>
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Solicitudes de productos añadidas";
 }
-<h1>@ViewData["Title"]</h1>
+<body>  
+<div class="text-center">
+    <h1 class="display">Solicitudes registradas en los ultimos 5 dias</h1>
+</div>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div>
+    @if (Model.Count == 0)
+    {
+        <div >No se han obtenido datos de registro de productos</div>
+    }
+</div>
+
+<div>
+    <div class="row">
+        @foreach (var producto in Model)
+        {
+            <span>
+            <div >
+                <div>
+                    <img src="@producto.url_producto">
+                        <div class="card-body">
+                            <h5 class="card-title">@producto.nombre</h5>
+                        </div>
+                        <ul class="list">
+                            <li class="list"><strong>Descripción: </strong>@producto.descripcion</li>
+                            <li class="list"><strong>Precio: </strong>@producto.precio</li>
+                            <li class="list"><strong>Celular: </strong>@producto.celular</li>
+                            <li class="list"><strong>Lugar: </strong>@producto.lugarcompraproducto</li>
+                            <li class="list"><strong>Usuario: </strong>@producto.usuario</li>
+                        </ul>
+                        <div class="body">
+                            <form action="/Home/Eliminar" method="POST">
+                                <input type="hidden" name="Id" value="@producto.id">
+                                <button class="btn btn-primary">Eliminar</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+            </span>
+        }
+    </div>
+</div>
+</body>
